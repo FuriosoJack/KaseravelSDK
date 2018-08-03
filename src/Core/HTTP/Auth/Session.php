@@ -7,4 +7,6 @@ namespace FuriosoJack\Kaseravel\Core\HTTP\Auth;
 class Session
 {
 
+
+
 }

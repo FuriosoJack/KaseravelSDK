@@ -16,11 +16,23 @@
       "FuriosoJack\\Kaseravel\\": "src"
     }
   },
+  "autoload-dev":{
+    "psr-4": {
+      "FuriosoJack\\Kaseravel\\Tests\\": "tests/"
+    }
+  },
   "require": {
     "php": ">= 7",
     "laravel/framework": "^5.6",
-    "tcdent/php-restclient": "^0.1.7"
+    "tcdent/php-restclient": "^0.1.7",
+    "codwelt/helpersman": "dev-master"
   },
+  "require-dev":{
+    "orchestra/testbench": "^3.6",
+    "orchestra/testbench-browser-kit": "^3.6"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable" : true,
   "extra": {
     "laravel": {
       "providers": [
@@ -28,5 +40,6 @@
       ]
     }
   }
+
 
 }

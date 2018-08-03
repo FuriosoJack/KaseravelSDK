@@ -2,6 +2,7 @@
 
 
 namespace FuriosoJack\Kaseravel\Core\HTTP;
+use FuriosoJack\Kaseravel\Core\HTTP\Auth\Auth;
 
 /**
  * Class ClientApi
@@ -14,35 +15,48 @@ class ClientApi
 
     private $restClient;
 
-    public function __construct(string $host, string $user, string $password)
+    private $host;
+
+
+
+    public function __construct(string $host)
     {
-        $this->createRestClient($host,$user,$password);
+        $this->host = $host;
+        $this->createRestClient();
 
     }
 
-    private function createRestClient(string $host, string $user, string $password)
+    private function createRestClient()
     {
-        $url = 'https://'. $host . self::API_BASE_PATH;
-        $this->restClient = new \RestClient([
-            'base_url' => $url
-        ]);
+        $this->restClient = new \RestClient($this->getOptionsRestClient());
+    }
 
+    private function getRestClient(): \RestClient
+    {
+        return $this->restClient;
     }
 
     private function getUrl()
     {
-
+        return 'https://'. $this->host . self::API_BASE_PATH;
     }
 
-    public function execute(string $host, string $path, array $parameters = [], array $headers = []): Response
+    public function execute(string $url, array $parameters = [], array $headers = []):Response
     {
-
+        $responseRAW = $this->getRestClient()->get($url,$parameters,$headers)->response;
+        return new Response($responseRAW);
     }
 
 
-
-    private function getOptionsRestClient()
+    private function getOptionsRestClient():array
     {
+        return [
+           'base_url' => $this->getUrl(),
+           'curl_options' => [
+                CURLOPT_SSL_VERIFYPEER => false,
+                CURLOPT_SSL_VERIFYHOST => false
+           ]
+        ];
 
     }
 
