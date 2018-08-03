@@ -1,10 +1,10 @@
 <?php
 namespace FuriosoJack\Kaseravel\Core\HTTP\Auth;
 /**
- * Class Credentials
+ * Class AuthClient
  * @author Juan Diaz - FuriosoJack <iam@furiosojack.com>
  */
-class Credentials
+class AuthClient
 {
 
 }

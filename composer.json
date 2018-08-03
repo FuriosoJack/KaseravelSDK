@@ -19,7 +19,8 @@
   },
   "require": {
     "php": ">= 7",
-    "laravel/framework": "^5.6"
+    "laravel/framework": "^5.6",
+    "tcdent/php-restclient": "^0.1.7"
   },
 
   "extra": {
