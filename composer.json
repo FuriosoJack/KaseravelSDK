@@ -25,7 +25,8 @@
     "php": ">= 7",
     "laravel/framework": "^5.6",
     "tcdent/php-restclient": "^0.1.7",
-    "codwelt/helpersman": "dev-master"
+    "codwelt/helpersman": "dev-master",
+    "furiosojack/lara-exception": "^1.0"
   },
   "require-dev":{
     "orchestra/testbench": "^3.6",
